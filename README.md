@@ -1,123 +1,79 @@
-# lung-cancer1
-🫁 Lung Cancer Risk Prediction Analysis
+# 🫁 Lung Cancer Prediction using SVM
 
-🎯 Project Overview: Unmasking the Predictors
+## 📄 Project Overview  
+This project focuses on predicting **lung cancer** using a dataset of various lifestyle and health-related factors.  
+It employs a **Support Vector Machine (SVM)** classifier to analyze and predict whether an individual is likely to have lung cancer based on given attributes.  
 
-This project performs a comprehensive analysis of survey data to predict lung cancer risk and identify the most significant contributing factors. Our goal is to transform raw data on symptoms and habits (Smoking, Fatigue, Chest Pain, etc.) into clear, actionable insights using machine learning and rigorous statistical methods.
+---
 
-The ultimate aim is to determine which factors are the strongest, independent predictors of a positive lung cancer diagnosis within the surveyed population.
+## 📊 Dataset Description  
+The dataset used is **`survey lung cancer.csv`** containing **309 samples** and **16 features**.  
 
-🚀 Key Highlights & Results
+### 🧬 Features  
+- **GENDER** 🧑‍🤝‍🧑  
+- **AGE** 🎂  
+- **SMOKING** 🚬  
+- **YELLOW_FINGERS** ☝️  
+- **ANXIETY** 😰  
+- **PEER_PRESSURE** 🧍‍♂️  
+- **CHRONIC DISEASE** 🩺  
+- **FATIGUE** 😴  
+- **ALLERGY** 🤧  
+- **WHEEZING** 😮‍💨  
+- **ALCOHOL CONSUMING** 🍺  
+- **COUGHING** 🤧  
+- **SHORTNESS OF BREATH** 😤  
+- **SWALLOWING DIFFICULTY** 🍽️  
+- **CHEST PAIN** 💔  
+- **LUNG_CANCER** (Target Variable)
 
-(Once you complete your analysis, replace these placeholders with your actual, punchy findings!)
+---
 
-Metric / Finding
+## 🧠 Model Workflow  
 
-Value
+### 1️⃣ Data Preprocessing  
+- Checked for missing values ✅  
+- Encoded categorical variables using **LabelEncoder**  
+- Standardized data with **StandardScaler**
 
-Significance
+### 2️⃣ Train-Test Split  
+- Training data: 80%  
+- Test data: 20%
 
-Model Accuracy
+### 3️⃣ Model Training  
+- Algorithm: **Support Vector Classifier (SVC)**  
+- Library: `scikit-learn`
 
-98.7% (Support Vector Machine)
+```python
+from sklearn.svm import SVC
+model = SVC()
+model.fit(x_train, y_train)
+| Metric    | Class 0 | Class 1 |
+| --------- | ------- | ------- |
+| Precision | 0.25    | 0.98    |
+| Recall    | 0.50    | 0.95    |
+| F1-Score  | 0.33    | 0.97    |
+sns.heatmap(cm, annot=True, fmt='g')
+plt.title('Confusion Matrix')
+sns.heatmap(cm, annot=True, fmt='g')
+plt.title('Confusion Matrix')
+sns.heatmap(cm, annot=True, fmt='g')
+plt.title('Confusion Matrix')
+Results Summary
 
-High performance achieved in classifying patients.
+✅ High accuracy (93.5%) on test data
+✅ SVM model effectively distinguishes between lung cancer cases
+⚠️ Slight imbalance between classes observed
+Future Improvements
 
-Top Predictor
+Implement feature selection
 
-Shortness of Breath
+Try ensemble models (Random Forest, XGBoost)
 
-The single most impactful feature for predicting a positive diagnosis.
+Optimize SVM hyperparameters using GridSearchCV
 
-Data Imbalance
+👨‍💻 Author
 
-90% YES vs 10% NO
-
-Addressed using techniques like Synthetic Minority Over-sampling Technique (SMOTE).
-
-Age Correlation
-
-Average diagnosis age: 63.5
-
-Confirmed a strong concentration of diagnoses in the older age group.
-
-💡 We successfully created a highly accurate classification model, but the key value lies in the Feature Importance—highlighting the physical symptoms that warrant immediate medical attention.
-
-📂 Project Structure & Workflow
-
-The analysis is broken down into two main phases, documented in their respective files:
-
-Data_Preparation_and_EDA.ipynb
-
-Cleaning & Encoding: Handling missing values and converting categorical text (GENDER, LUNG_CANCER) and binary numbers (1, 2) into usable formats.
-
-Exploratory Data Analysis (EDA): Visualizing distributions, finding correlations (e.g., using a heatmap), and checking for data balance/imbalance.
-
-Modeling_and_Prediction.ipynb
-
-Preprocessing: Scaling features and handling class imbalance (e.g., using SMOTE).
-
-Model Training: Implementing and comparing various classifiers (e.g., SVM, Logistic Regression, Decision Tree).
-
-Evaluation: Assessing model performance using metrics like Accuracy, Precision, Recall, and F1-Score.
-
-💻 Technologies Used
-
-Category
-
-Tools
-
-Language
-
-Python (3.x)
-
-Data Manipulation
-
-Pandas, NumPy
-
-Visualization
-
-Matplotlib, Seaborn
-
-Machine Learning
-
-Scikit-learn
-
-⚙️ Get Started
-
-To reproduce this analysis locally, follow these steps:
-
-Clone the Repository:
-
-git clone [YOUR_REPO_LINK]
-cd [YOUR_REPO_NAME]
-
-
-Install Dependencies:
-
-pip install pandas numpy matplotlib seaborn scikit-learn jupyter
-
-
-Run the Notebooks:
-Launch Jupyter Lab or Jupyter Notebook and open the files in order:
-
-jupyter notebook
-# Then open Data_Preparation_and_EDA.ipynb
-# Then open Modeling_and_Prediction.ipynb
-
-
-🤝 Next Steps & Contributions
-
-I'm always looking to refine the model! Future improvements could include:
-
-Deep Learning: Implementing a basic Neural Network to see if we can push accuracy higher.
-
-Time Series: If available, incorporating longitudinal data to analyze risk changes over time.
-
-Explainable AI (XAI): Using SHAP or LIME to better explain individual model predictions.
-
-Feel free to fork the repository, open an issue, or submit a pull request!
-
-📝 Data Source
-
-The raw data for this project is sourced from: survey lung cancer.csv.
+Project by: [amrita kumari]
+🗓️ Date: 8October 2025
+📍 Tool Used: Google Colab
